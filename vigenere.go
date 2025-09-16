@@ -41,14 +41,14 @@ func vigenereDecypher(cipher string, key string) string {
 
 	for _, c := range cipher {
 		if c >= 'a' && c <= 'z' {
-			// récupérer la lettre à l'index i modulo la longueur de la clé
+			// récupérer la lettre à l'index i modulo la longueur de la clé pour revenir au début de la clé si on a utilisé toute la clé
 			k := key[j%len(key)]
 			// récupérer le décalage de la lettre de la clé
 			shift := k - 'A'
 			b.WriteString(cesarDecypher(string(c), int(shift)))
 			j++ // n'incrémenter j que si on a utilisé une lettre
 		} else if c >= 'A' && c <= 'Z' {
-			// récupérer la lettre à l'index i modulo la longueur de la clé
+			// récupérer la lettre à l'index i modulo la longueur de la clé pour revenir au début de la clé si on a utilisé toute la clé
 			k := key[j%len(key)]
 			// récupérer le décalage de la lettre de la clé
 			shift := k - 'A'
